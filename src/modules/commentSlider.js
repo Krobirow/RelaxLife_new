@@ -1,5 +1,4 @@
 const commentSlider = () => {
-    const sliderReviews = document.querySelector('.reviews-slider');
     const sliderSlides = document.querySelectorAll('.reviews-slider__slide');
     const sliderNext = document.getElementById('reviews-arrow_left');
     const sliderPrev = document.getElementById('reviews-arrow_right');

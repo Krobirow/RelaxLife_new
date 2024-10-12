@@ -1,8 +1,11 @@
 const accordeon = () => {
 	const accordeonContainer = document.getElementById('faq');
-	const titleBlockList = document.querySelectorAll('.title_block');
+	const titleBlockList = accordeonContainer.querySelectorAll('.title_block');
 
-	accordeonContainer.addEventListener('click', e=> {
+	titleBlockList[0].nextElementSibling.style.height = '300px';
+	titleBlockList[0].classList.add('msg-active');
+
+	accordeonContainer.addEventListener('click', e => {
 		let targ = e.target;
 
 			if(targ.classList.contains('title_block') && !targ.classList.contains('msg-active')) {
@@ -10,7 +13,7 @@ const accordeon = () => {
 					item.classList.remove('msg-active');
 					item.nextElementSibling.style.height = '0px';
 				})
-				targ.nextElementSibling.style.height = '400px';
+				targ.nextElementSibling.style.height = '300px';
 				targ.classList.add('msg-active');
 			} else if (targ.classList.contains('title_block') && targ.classList.contains('msg-active')) {
 				targ.classList.remove('msg-active');

@@ -9,8 +9,8 @@ const fetchSenderForms = () => {
 
 	statusMessage.style.cssText = `
 		margin-left: 30px;
-		font-size: 12px;
-		color: #73b2ddc7;
+		font-size: 14px;
+		color: red;
 	`;
 
 	const postData = body => {
@@ -132,12 +132,11 @@ const fetchSenderForms = () => {
 			});
 		})();
 	};
+
 	formSend(forms[0]);
 	formSend(forms[1]);
 	formSend(forms[2]);
 	formSend(forms[3]);
-	formSend(forms[4]);
-	formSend(forms[5]);
 };
 
 export default fetchSenderForms;
