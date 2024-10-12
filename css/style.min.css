@@ -198,7 +198,8 @@ template {
     /* minus header height */
     padding-top: 1px;
     color: #fff;
-    background: url(../images/main/slide1.jpg) center/cover no-repeat
+    background: url(../images/main/slide1.jpg) center/cover no-repeat;
+    margin-top: 120px;
 }
 
 .main:after {
@@ -242,13 +243,14 @@ template {
         overflow: hidden;
         border-bottom-left-radius: 100% 17%;
         border-bottom-right-radius: 100% 17%;
-        width: 110%;
-        left: -5%;
+        width: 100%;
+        left: 0%;
         height: calc(100vh - 120px);
         /* minus header height */
         background: url(../images/main/main-mobile-bg.jpg) 50% 0/91% auto no-repeat;
         -webkit-box-shadow: none;
-        box-shadow: none
+        box-shadow: none;
+        margin-top: 80px;
     }
 
     .main:after {
@@ -390,7 +392,7 @@ template {
 }
 
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     background-color: #413b3b;
     color: white;
@@ -404,7 +406,7 @@ template {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    max-width: 100%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     height: 120px
@@ -1778,7 +1780,7 @@ div.wave-block:nth-child(17):after {
 
     .transparency-videoreport__descr {
         margin-left: 5px;
-        font-size: 8px
+        font-size: 14px
     }
 }
 
@@ -3066,7 +3068,7 @@ div.wave-block:nth-child(17):after {
 .msg-active~.msg {
     position: relative;
     overflow: hidden;
-    max-height: 100%;
+    max-height: 300px;
     opacity: 1;
     -webkit-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
@@ -3103,7 +3105,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width:575px) {
     .msg-active~.msg {
-        max-height: 300px
+        max-height: 500px
     }
 
     .msg-active~.msg~.accordion-more {
@@ -3219,6 +3221,16 @@ div.wave-block:nth-child(17):after {
     justify-content: space-between;
     align-items: center;
     flex-basis: 100%;
+}
+
+@media (max-width:575px) {
+    .footer-main {
+        flex-direction: column;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
 }
 
 .footer-logo {
@@ -3421,14 +3433,14 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width:575px) {
     .popup-dialog-menu {
-        width: 110%;
+        width: 100%;
         height: 705px;
         background: #322823;
         border-bottom-left-radius: 100% 17%;
         border-bottom-right-radius: 100% 17%;
         -webkit-transform: translate3d(0, -100vh, 0);
         transform: translate3d(0, -100vh, 0);
-        left: -5%
+        left: 0;
     }
 }
 
@@ -5896,8 +5908,8 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width:575px) {
     .checkbox__descr {
-        font-size: 8px;
-        line-height: 11px
+        font-size: 14px;
+        line-height: 14px
     }
 }
 
@@ -6163,6 +6175,7 @@ body {
     font-family: "Noto Sans SC", sans-serif;
     color: #322823;
     background: url(../images/bodybackground.svg) 0 3555px/100% 2984px no-repeat #fbfaf8;
+    overflow-x: hidden;
 }
 
 strong {
@@ -6203,13 +6216,13 @@ strong {
     }
 
     #reviews-arrow_left {
-        top: 117%;
-        left: 55px
+        top: 35%;
+        left: 15px
     }
 
     #reviews-arrow_right {
-        top: 117%;
-        right: 55px
+        top: 35%;
+        right: 15px
     }
 
     #transparency-arrow_left {
@@ -6430,7 +6443,9 @@ strong {
 
     .logo {
         padding-left: 7%;
-        font-size: 30px
+        img {
+            max-width: 85px;
+        }
     }
 }
 
@@ -6698,8 +6713,8 @@ strong {
         overflow: hidden;
         border-top-left-radius: 100% 17%;
         border-top-right-radius: 100% 17%;
-        width: 110%;
-        left: -5%
+        width: 100%;
+        left: 0;
     }
 
     .mobile-hide {
