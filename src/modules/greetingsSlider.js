@@ -6,17 +6,19 @@ const greetingsSlider = () => {
   let currentSlide = 0;
   let autoSlideInterval;
 
-  // Добавляем точки (индикаторы)
-  slides.forEach((_, index) => {
-    const indicator = document.createElement('span');
-    if (index === 0) indicator.classList.add('active');
-    indicatorsContainer.appendChild(indicator);
-  });
+  setTimeout(() => {
+    // Добавляем точки (индикаторы)
+    slides.forEach((_, index) => {
+      const indicator = document.createElement('span');
+      if (index === 0) indicator.classList.add('active');
+      indicatorsContainer.appendChild(indicator);
+      _.style.visibility = 'visible';
+    });
+  }, 1000);
   
-  const indicators = document.querySelectorAll('.greetings-slider__indicators span');
-
   // Функция для переключения слайдов
   const changeSlide = (index) => {
+    const indicators = document.querySelectorAll('.greetings-slider__indicators span');
     slides[currentSlide].classList.remove('active');
     indicators[currentSlide].classList.remove('active');
     currentSlide = (index + slides.length) % slides.length; // Бесконечный цикл
@@ -88,6 +90,8 @@ const greetingsSlider = () => {
 
   // Обработка кликов по стрелкам и индикаторам с использованием делегирования событий
   sliderWrapper.addEventListener('click', (e) => {
+    const indicators = document.querySelectorAll('.greetings-slider__indicators span');
+
     if (e.target.closest('#nav-arrow-greetings_left')) {
       // Клик по левой стрелке
       prevSlide();
