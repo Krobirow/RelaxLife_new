@@ -1,11 +1,8 @@
 const howWeWorkTabs = () => {
-
-
 	const schemeId = document.getElementById('scheme');
 	const schemeBtnBlock = document.getElementById('scheme-list');
 	const schemeBtnList = document.querySelectorAll('.scheme-nav__item');
 
-	const schemeSlider = document.querySelector('.scheme-slider');
 	const schemeSliderSlides = document.querySelectorAll('.scheme-slider__slide');
 	const schemeSliderDescrBlock = document.querySelectorAll('.scheme-description-block');
 

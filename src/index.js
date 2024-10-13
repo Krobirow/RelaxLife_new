@@ -8,6 +8,7 @@ import 'eventlistener-polyfill';
 import 'events-polyfill';
 import 'scroll-into-view';
 
+import greetingsSlider from './modules/greetingsSlider';
 import burgerMenu from './modules/burgerMenu';
 import pleasingScrollToLinks from './modules/pleasingScrollToLinks';
 import showFullListServices from './modules/showFullListServices';
@@ -31,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	maskPhone('#feedback-input6');
 	burgerMenu();
 	pleasingScrollToLinks();
+	greetingsSlider();
 	showFullListServices();
 	modalPopUpPrivPolicy();
 	hintsVisible();

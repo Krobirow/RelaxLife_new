@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="pl">
 
 <head>
   <meta charset="UTF-8">
@@ -11,18 +11,18 @@
     href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700,800,900&amp;subset=cyrillic,cyrillic-ext"
     rel="stylesheet">
   <link rel="stylesheet" href="./css/style.min.css">
-  <title>Relax Live</title>
+  <title>Arkos Home</title>
 </head>
 
 <body>
   <div id="scrollToTopElement"></div>
   <header class="header" id="header">
     <div class="header-contacts">
-      <div class="header-contacts__phone-icon"><a href="tel:+79123456789"><img src="./images/header/phoneIcon.svg"
+      <div class="header-contacts__phone-icon"><a href="tel:+48579381915"><img src="./images/header/phoneIcon.svg"
             alt="phoneIcon"></a></div>
       <div class="header-contacts-wrap">
         <div class="header-contacts__phone-number-wrap"><a class="header-contacts__phone-number"
-            href="tel:+79123456789">+7 (123) 456-78-90</a></div>
+            href="tel:+48579381915">+48 579 381 915</a></div>
       </div>
     </div><!-- contacts -->
 
@@ -30,12 +30,45 @@
       <img src="./images/Fresh_logo_art.svg" alt="Product logo">
     </div>
     <div class="menu">
-      <div class="menu-phone-icon"><a href="tel:+79123456789"><img src="./images/header/phoneIcon.svg"
+      <div class="menu-phone-icon"><a href="tel:+48579381915"><img src="./images/header/phoneIcon.svg"
             alt="phoneIcon"></a>
       </div>
-      <span class="menu__title">Меню </span><img class="menu__icon" src="./images/header/menuIcon.svg" alt="menuIcon">
+      <span class="menu__title">Menu </span><img class="menu__icon" src="./images/header/menuIcon.svg" alt="menuIcon">
     </div><!-- menu -->
   </header><!-- header -->
+  <div class="greetings" id="greetings">
+    <section class="greetings-wrapper">
+      <div class="greetings-slider-wrap">
+        <div class="greetings-slider">
+          <div class="greetings-slider__slide fade-tab"><img src="./images/greetings/1-min.webp" alt=""></div><!-- /item1 -->
+          <div class="greetings-slider__slide fade-tab"><img src="./images/greetings/2-min.webp" alt=""></div><!-- /item2 -->
+          <div class="greetings-slider__slide fade-tab"><img src="./images/greetings/3-min.webp" alt=""></div><!-- /item3 -->
+          <div class="greetings-slider__slide fade-tab"><img src="./images/greetings/4-min.webp" alt=""></div><!-- /item4 -->
+        </div>
+        <div class="greetings-nav-arrow nav-arrow_left greetings-nav-arrow_left" id="nav-arrow-greetings_left">
+          <svg width="50" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 5L10 25l25 20" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        
+        <div class="greetings-nav-arrow nav-arrow_right greetings-nav-arrow_right" id="nav-arrow-greetings_right">
+          <svg width="50" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 5l25 20-25 20" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="greetings-description-block visible-content-block">
+          <h2 class="section-title scheme__title">Kompleksowy remont Twojego mieszkania pod klucz</h2>
+          <div class="greetings-description-block__text">
+            <p>Umów się na bezpłatną konsultację: </p>
+            <a href="tel:+48579381915">+48 579 381 915</a>
+          </div>
+        </div>
+        <div class="greetings-slider__indicators">
+          <!-- Точки добавятся через JS -->
+        </div>
+      </div><!-- greetings-slider-wrap -->
+    </section>
+  </div><!-- /greetings -->
   <div class="main" id="main">
     <div class="wrapper_middle">
       <div class="main-title">
@@ -130,23 +163,9 @@
           <div class="problems-item__icon">
             <div class="problems-item-popup problems-item-popup-1" style="visibility: visible; opacity: 1;">
               <div class="problems-item-popup__title">
-                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                    alt="circle"></div>
-                <div class="problems-item-popup__title-title">Что в итоге?</div>
-              </div>
-              <div class="problems-item-popup__descr">Каждый раз, глядя на <strong>плохой</strong> ремонт,
-                <strong>Вы</strong> испытаете чувство <strong>разочарования,</strong> а при
-                <strong>несоблюдении</strong>
-                «строителями» норм и вовсе <strong>проблемы.</strong>
-              </div>
-              <div class="problems-item-popup__title">
                 <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Какое решение?</div>
-              </div>
-              <div class="problems-item-popup__descr">У нас работают только <strong>квалифицированные</strong> граждане
-                РФ, у нас нет мастеров <strong>«на все руки»,</strong> но есть <strong>качественные</strong> специалисты
-                под каждую задачу выполнения ремонта.
+                <div class="problems-item-popup__title-title">Twoje koszty nie zmienią się w czasie</div>
               </div>
             </div><!-- /problems-item-popup -->
             <div class="problems-item__icon-inner active-item"></div>
@@ -159,10 +178,7 @@
               </svg>
             </div>
           </div>
-          <div class="problems-item__title">Отвратное<br>качество</div>
-          <div class="problems-item__descr">Неквалифицированные «мастера на все руки» не могут выполнить работу
-            качественно и соблюдать нормы
-          </div>
+          <h3 class="problems-item__title">Stabilność i <br>gwarancja ceny</h3>
         </div><!-- /problems-item -->
       </div>
       <div class="row">
@@ -170,21 +186,14 @@
           <div class="problems-item__icon">
             <div class="problems-item-popup problems-item-popup-2">
               <div class="problems-item-popup__title">
-                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
+                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Что в итоге?</div>
-              </div>
-              <div class="problems-item-popup__descr">Мечта въехать в долгожданную квартиру откладывается на
-                неопределенный срок.
+                <div class="problems-item-popup__title-title">Każde zlecenie traktujemy bardzo indywidualnie</div>
               </div>
               <div class="problems-item-popup__title">
                 <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Какое решение?</div>
-              </div>
-              <div class="problems-item-popup__descr">У нас все очень просто, в договоре прописываются конкретные и
-                чёткие
-                сроки, которые мы обязуемся соблюдать.
+                <div class="problems-item-popup__title-title">Naszym priorytetem jest przede wszystkim zapewnienie jak najwyższej jakości usług na każdym etapie remontu</div>
               </div>
             </div><!-- /problems-item-popup -->
             <div class="problems-item__icon-inner"></div>
@@ -197,29 +206,16 @@
               </svg>
             </div>
           </div>
-          <div class="problems-item__title">Не выполнение<br>в срок</div>
-          <div class="problems-item__descr">Непрофессиональные подрядчики грешат несоблюдением оговоренных сроков.</div>
+          <h3 class="problems-item__title">Odpowiedzialność <br>Dokładność</h3>
         </div><!-- /problems-item -->
-        <div class="section-title problems-title">Какие проблемы <span>мы решаем?</span></div>
+        <div class="section-title problems-title">Dlaczego my?</span></div>
         <div class="problems-item">
           <div class="problems-item__icon">
             <div class="problems-item-popup problems-item-popup-3">
               <div class="problems-item-popup__title">
-                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                    alt="circle"></div>
-                <div class="problems-item-popup__title-title">Что в итоге?</div>
-              </div>
-              <div class="problems-item-popup__descr">Намеренно заниженные расходы в итоге вырастут на 30-40%. И клиенту
-                ничего не останется, как платить.
-              </div>
-              <div class="problems-item-popup__title">
                 <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Какое решение?</div>
-              </div>
-              <div class="problems-item-popup__descr">Мы работаем только по «белому», у нас составляется четкий и
-                понятный
-                официальный договор, по которому мы успешно сотрудничаем.
+                <div class="problems-item-popup__title-title">Śledzimy za nowymi trendami, modą i technologiami związanymi z wykańczaniem wnętrz oraz remontami</div>
               </div>
             </div><!-- /problems-item-popup -->
             <div class="problems-item__icon-inner"></div>
@@ -232,10 +228,7 @@
               </svg>
             </div>
           </div>
-          <div class="problems-item__title">Непрозрачность и<br>не честность</div>
-          <div class="problems-item__descr">Некоторые компании в погоне за клиентами манипулируют ценами, специально
-            занижая их.
-          </div>
+          <h3 class="problems-item__title">Innowacji</h3>
         </div><!-- /problems-item -->
       </div>
       <div class="row">
@@ -243,21 +236,14 @@
           <div class="problems-item__icon">
             <div class="problems-item-popup problems-item-popup-4">
               <div class="problems-item-popup__title">
-                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
+                <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Что в итоге?</div>
-              </div>
-              <div class="problems-item-popup__descr">И за непрофессиональных подрядчиков приходится за свой счёт
-                исправлять повреждения или даже переделывать заново интерьер.
+                <div class="problems-item-popup__title-title">Nasz zespol zajmuję się pracami remontowymi kompleksowo od A do Z, dzięki temu nie musisz szukać kilku ekip remontowych</div>
               </div>
               <div class="problems-item-popup__title">
                 <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_decision.svg"
                     alt="circle"></div>
-                <div class="problems-item-popup__title-title">Какое решение?</div>
-              </div>
-              <div class="problems-item-popup__descr">Мы работаем только по «белому», у нас составляется четкий и
-                понятный
-                официальный договор, по которому мы успешно сотрудничаем.
+                <div class="problems-item-popup__title-title">Doradzamy przy wyborze odpowiednich materiałów</div>
               </div>
             </div><!-- /problems-item-popup -->
             <div class="problems-item__icon-inner"></div>
@@ -270,38 +256,21 @@
               </svg>
             </div>
           </div>
-          <div class="problems-item__title">Повреждение<br>существующего интерьера</div>
-          <div class="problems-item__descr">Некоторые компании случайно или умышленно повреждают уже существующий
-            интерьер
-            или ремонт.
-          </div>
+          <h3 class="problems-item__title">Profesjonalizm<br>Doradztwo</h3>
         </div><!-- /problems-item -->
       </div>
     </div><!-- /wrapper_middle mobile-hide  -->
     <div class="wrapper_small desktop-hide">
-      <div class="section-title problems-title">Какие проблемы <span>мы решаем?</span></div>
+      <div class="section-title problems-title">Dlaczego my?</span></div>
       <div class="problems-carousel-wrapper">
         <div class="problems-carousel">
           <div class="problems-carousel__item active-item">
             <div class="problems-item__icon">
               <div class="problems-item-popup problems-item-popup-1">
                 <div class="problems-item-popup__title">
-                  <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                      alt="problem"></div>
-                  <div class="problems-item-popup__title-title">Что в итоге?</div>
-                </div>
-                <div class="problems-item-popup__descr">Каждый раз, глядя на <strong>плохой</strong> ремонт,
-                  <strong>Вы</strong> испытаете чувство <strong>разочарования,</strong> а при
-                  <strong>несоблюдении</strong> «строителями» норм и вовсе <strong>проблемы.</strong>
-                </div>
-                <div class="problems-item-popup__title">
                   <div class="problems-item-popup__title-icon"><img
                       src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
-                  <div class="problems-item-popup__title-title">Какое решение?</div>
-                </div>
-                <div class="problems-item-popup__descr">У нас работают только <strong>квалифицирован<br>ные</strong>
-                  граждане РФ, у нас нет мастеров <strong>«на все руки»,</strong> но есть <strong>качественные</strong>
-                  специалисты под каждую задачу выполнения ремонта.
+                  <div class="problems-item-popup__title-title">Twoje koszty nie zmienią się w czasie</div>
                 </div>
               </div><!-- /problems-item-popup -->
               <div class="problems-item__icon-inner">
@@ -315,29 +284,15 @@
                 </div>
               </div>
             </div>
-            <div class="problems-item__title">Отвратное<br>качество</div>
-            <div class="problems-item__descr">Неквалифицированные «мастера на все руки» не могут выполнить работу
-              качественно и соблюдать нормы
-            </div>
+            <h3 class="problems-item__title">Stabilność i <br>gwarancja ceny</h3>
           </div><!-- /problems-item -->
           <div class=" problems-carousel__item">
             <div class="problems-item__icon">
               <div class="problems-item-popup problems-item-popup-2">
                 <div class="problems-item-popup__title">
-                  <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                      alt="problem"></div>
-                  <div class="problems-item-popup__title-title">Что в итоге?</div>
-                </div>
-                <div class="problems-item-popup__descr">Мечта въехать в долгожданную квартиру откладывается на
-                  неопределенный срок.
-                </div>
-                <div class="problems-item-popup__title">
                   <div class="problems-item-popup__title-icon"><img
                       src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
-                  <div class="problems-item-popup__title-title">Какое решение?</div>
-                </div>
-                <div class="problems-item-popup__descr">У нас все очень просто, в договоре прописываются конкретные и
-                  чёткие сроки, которые мы обязуемся соблюдать.
+                  <p class="problems-item-popup__title-title">Twoje koszty nie zmienią się w czasie</p>
                 </div>
               </div><!-- /problems-item-popup -->
               <div class="problems-item__icon-inner">
@@ -351,30 +306,22 @@
                 </div>
               </div>
             </div>
-            <div class="problems-item__title">Не выполнение<br>в срок</div>
-            <div class="problems-item__descr">Непрофессиональные подрядчики грешат несоблюдением оговоренных сроков.
-            </div>
+            <h3 class="problems-item__title">Odpowiedzialność <br>Dokładność</h3>
           </div><!-- /problems-item -->
           <div class=" problems-carousel__item">
             <div class="problems-item__icon">
               <div class="problems-item-popup problems-item-popup-3">
                 <div class="problems-item-popup__title">
-                  <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                      alt="problem"></div>
-                  <div class="problems-item-popup__title-title">Что в итоге?</div>
-                </div>
-                <div class="problems-item-popup__descr">Намеренно заниженные расходы в итоге вырастут на 30-40%. И
-                  клиенту
-                  ничего не останется, как платить.
+                  <div class="problems-item-popup__title-icon"><img
+                      src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
+                  <div class="problems-item-popup__title-title">Każde zlecenie traktujemy bardzo indywidualnieu</div>
                 </div>
                 <div class="problems-item-popup__title">
                   <div class="problems-item-popup__title-icon"><img
                       src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
-                  <div class="problems-item-popup__title-title">Какое решение?</div>
+                  <div class="problems-item-popup__title-title">Naszym priorytetem jest przede wszystkim zapewnienie jak najwyższej jakości usług na każdym etapie remontu</div>
                 </div>
-                <div class="problems-item-popup__descr">Мы работаем только по «белому», у нас составляется четкий и
-                  понятный официальный договор, по которому мы успешно сотрудничаем.
-                </div>
+
               </div><!-- /problems-item-popup -->
               <div class="problems-item__icon-inner">
                 <div>
@@ -387,30 +334,22 @@
                 </div>
               </div>
             </div>
-            <div class="problems-item__title">Непрозрачность и<br>не честность</div>
-            <div class="problems-item__descr">Некоторые компании в погоне за клиентами манипулируют ценами, специально
-              занижая их.
-            </div>
+            <h3 class="problems-item__title">Innowacji</h3>
           </div><!-- /problems-item -->
           <div class=" problems-carousel__item">
             <div class="problems-item__icon">
               <div class="problems-item-popup problems-item-popup-4">
                 <div class="problems-item-popup__title">
-                  <div class="problems-item-popup__title-icon"><img src="./images/problems/popup_title_icon_problem.svg"
-                      alt="problem"></div>
-                  <div class="problems-item-popup__title-title">Что в итоге?</div>
-                </div>
-                <div class="problems-item-popup__descr">И за непрофессиональных подрядчиков приходится за свой счёт
-                  исправлять повреждения или даже переделывать заново интерьер.
+                  <div class="problems-item-popup__title-icon"><img
+                      src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
+                  <div class="problems-item-popup__title-title">Nasz zespol zajmuję się pracami remontowymi kompleksowo od A do Z, dzięki temu nie musisz szukać kilku ekip remontowych</div>
                 </div>
                 <div class="problems-item-popup__title">
                   <div class="problems-item-popup__title-icon"><img
                       src="./images/problems/popup_title_icon_decision.svg" alt="decision"></div>
-                  <div class="problems-item-popup__title-title">Какое решение?</div>
+                  <div class="problems-item-popup__title-title">Doradzamy przy wyborze odpowiednich materiałów</div>
                 </div>
-                <div class="problems-item-popup__descr">Мы работаем только по «белому», у нас составляется четкий и
-                  понятный официальный договор, по которому мы успешно сотрудничаем.
-                </div>
+
               </div><!-- /problems-item-popup -->
               <div class="problems-item__icon-inner">
                 <div>
@@ -423,10 +362,7 @@
                 </div>
               </div>
             </div>
-            <div class="problems-item__title">Повреждение<br>существующего интерьера</div>
-            <div class="problems-item__descr">Некоторые компании случайно или умышленно повреждают уже существующий
-              интерьер или ремонт.
-            </div>
+            <h3 class="problems-item__title">Profesjonalizm<br>Doradztwo</h3>
           </div><!-- /problems-item -->
         </div><!-- /problems-slider -->
         <div class="slider-arrow slider-arrow_left problems-carousel__arrowLeft" id="problems-arrow_left">
@@ -1058,7 +994,7 @@
             <div class="footer-contacts-wrap">
               <div class="footer-contacts__title">Свяжитесь с нами:</div>
               <div class="footer-contacts__phones">
-                <a href="tel:+79876543210" class="footer-contacts__phones-phone">+7 (987) 654-32-10</a>
+                <a href="tel:+48579381915" class="footer-contacts__phones-phone">+48 579 381 915</a>
               </div>
             </div>
           </div><!-- /footer-contacts -->
