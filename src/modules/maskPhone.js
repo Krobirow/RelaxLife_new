@@ -1,4 +1,4 @@
-function maskPhone(selector, masked = '+7 (___) ___-__-__') {
+function maskPhone(selector, masked = '+48 ___ ___ ___') {
 	const elem = document.querySelector(selector);
 
 	function mask(event) {
@@ -14,7 +14,7 @@ function maskPhone(selector, masked = '+7 (___) ___-__-__') {
 		if (i !== -1) {
 			newValue = newValue.slice(0, i);
 		}
-		let reg = template.substr(0, this.value.length).replace(/_+/g,
+		let reg = template.substring(0, this.value.length).replace(/_+/g,
 			function (a) {
 				return "\\d{1," + a.length + "}";
 			}).replace(/[+()]/g, "\\$&");

@@ -1,6 +1,5 @@
 const modalPopUpPrivPolicy = () => {
 	const popUpPrivacy = document.querySelector('.popup-privacy');
-	const spanLinkPrivacy = document.querySelector('.link-privacy');
 	const popupThank = document.querySelector('.popup-thank');
 
 	const stopScroll = () => {
@@ -14,26 +13,35 @@ const modalPopUpPrivPolicy = () => {
 		htmlTag.style.overflowY = '';
 	};
 
-	spanLinkPrivacy.addEventListener('click', e => {
-		popUpPrivacy.style.visibility = 'visible';
-		stopScroll();
-	});
+	document.body.addEventListener('click', e => {
+		const target = e.target;
 
-	popupThank.addEventListener('click', e => {
-		if (e.target.classList.contains('close') || e.target.classList.contains('popup-thank')  && popupThank.style.visibility === 'visible') {
-			popupThank.style.visibility = 'hidden';
-			startScroll();
+		// Обработчик для показа popUpPrivacy
+		if (target.closest('.link-privacy')) {
+			popUpPrivacy.style.visibility = 'visible';
+			stopScroll();
 		}
-	})
-	
 
-	popUpPrivacy.addEventListener('click', e => {
-		let targ = e.target;
-		if(targ.classList.contains('close') && popUpPrivacy.style.visibility === 'visible') {
+		// Обработчик для закрытия popupThank при клике на крестик или на сам popupThank
+		if (target.closest('.popup-thank') || target.classList.contains('close')) {
+			if (popupThank.style.visibility === 'visible') {
+				popupThank.style.visibility = 'hidden';
+				startScroll();
+			}
+		}
+
+		// Обработчик для закрытия popUpPrivacy при клике на крестик
+		if (target.classList.contains('close') && popUpPrivacy.style.visibility === 'visible') {
 			popUpPrivacy.style.visibility = 'hidden';
 			startScroll();
 		}
-	});
+
+		// Обработчик для закрытия popUpPrivacy при клике на крестик
+		if (target.classList.contains('popup-privacy') && popUpPrivacy.style.visibility === 'visible') {
+			popUpPrivacy.style.visibility = 'hidden';
+			startScroll();
+		}
+	})
 };
 
 export default modalPopUpPrivPolicy;

@@ -135,8 +135,6 @@ const fetchSenderForms = () => {
 
 	formSend(forms[0]);
 	formSend(forms[1]);
-	formSend(forms[2]);
-	formSend(forms[3]);
 };
 
 export default fetchSenderForms;
