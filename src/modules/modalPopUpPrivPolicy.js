@@ -1,5 +1,6 @@
 const modalPopUpPrivPolicy = () => {
 	const popUpPrivacy = document.querySelector('.popup-privacy');
+	const popupRodo = document.querySelector('.popup-rodo');
 	const popupThank = document.querySelector('.popup-thank');
 
 	const stopScroll = () => {
@@ -22,12 +23,24 @@ const modalPopUpPrivPolicy = () => {
 			stopScroll();
 		}
 
+		// Обработчик для показа popUpPrivacy
+		if (target.closest('.link-privacy-rodo')) {
+			popupRodo.style.visibility = 'visible';
+			stopScroll();
+		}
+
 		// Обработчик для закрытия popupThank при клике на крестик или на сам popupThank
 		if (target.closest('.popup-thank') || target.classList.contains('close')) {
 			if (popupThank.style.visibility === 'visible') {
 				popupThank.style.visibility = 'hidden';
 				startScroll();
 			}
+		}
+
+		// Обработчик для закрытия popUpRodo при клике на крестик
+		if (target.classList.contains('close') && popupRodo.style.visibility === 'visible') {
+			popupRodo.style.visibility = 'hidden';
+			startScroll();
 		}
 
 		// Обработчик для закрытия popUpPrivacy при клике на крестик
@@ -39,6 +52,12 @@ const modalPopUpPrivPolicy = () => {
 		// Обработчик для закрытия popUpPrivacy при клике на крестик
 		if (target.classList.contains('popup-privacy') && popUpPrivacy.style.visibility === 'visible') {
 			popUpPrivacy.style.visibility = 'hidden';
+			startScroll();
+		}
+
+		// Обработчик для закрытия popUpRodo при клике на крестик
+		if (target.classList.contains('popup-rodo') && popupRodo.style.visibility === 'visible') {
+			popupRodo.style.visibility = 'hidden';
 			startScroll();
 		}
 	}

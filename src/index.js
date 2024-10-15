@@ -16,7 +16,6 @@ import modalPopUpPrivPolicy from './modules/modalPopUpPrivPolicy';
 import hintsVisible from './modules/hintsVisible';
 import howWeWorkTabs from './modules/howWeWorkTabs';
 import designerSolutTabsSliders from './modules/designerSolutTabsSliders';
-import popUpdesigneSlider from './modules/popUpdesigneSlider';
 import accordeon from './modules/accordeon';
 import UniversalCarousel from './modules/carousel';
 import fetchSenderForms from './modules/fetchSenderForms';
@@ -33,7 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	hintsVisible();
 	designerSolutTabsSliders();
 	howWeWorkTabs();
-	popUpdesigneSlider();
 	accordeon();
 	fetchSenderForms();
 
