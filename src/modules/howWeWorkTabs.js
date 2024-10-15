@@ -2,172 +2,92 @@ const howWeWorkTabs = () => {
 	const schemeId = document.getElementById('scheme');
 	const schemeBtnBlock = document.getElementById('scheme-list');
 	const schemeBtnList = document.querySelectorAll('.scheme-nav__item');
-
 	const schemeSliderSlides = document.querySelectorAll('.scheme-slider__slide');
 	const schemeSliderDescrBlock = document.querySelectorAll('.scheme-description-block');
-
+	
 	const tabButtonsArrowLeft = document.getElementById('nav-arrow-scheme_left');
 	const tabButtonsArrowRight = document.getElementById('nav-arrow-scheme_right');
 
-	let ourWidth;
 	let count = 0;
+	let isTransitioning = false;
+	const stepSize = 200; // Adjust this value if necessary
 
-	schemeId.addEventListener('click', e=> {
-		ourWidth = window.innerWidth;
-		let targ = e.target;
+	const getSliderBounds = () => schemeBtnBlock.getBoundingClientRect();
+	const getTabBounds = (index) => schemeBtnList[index].getBoundingClientRect();
+	const getTotalWidth = () => schemeBtnBlock.scrollWidth;
+	const getVisibleWidth = () => schemeBtnBlock.parentElement.offsetWidth;
 
-		// sliderBlock switcher
-		for (let j = 0; j < schemeBtnList.length; j++) {
-			
-			if (targ === schemeBtnList[j]) {
+	const updateButtonsState = () => {
+			const firstTabBounds = getTabBounds(0);
+			const lastTabBounds = getTabBounds(schemeBtnList.length - 1);
+			const sliderBounds = getSliderBounds();
 
-				for (let i = 0; i < schemeSliderDescrBlock.length; i++) {
-					schemeBtnList[i].classList.remove('active');
-					schemeSliderSlides[i].style.display = 'none';
-					schemeSliderDescrBlock[i].style.display = 'none';
+			// Disable left arrow if the first tab is fully visible
+			tabButtonsArrowLeft.disabled = (firstTabBounds.left - 10) >= sliderBounds.left;
+			// Disable right arrow if the last tab is fully visible
+			tabButtonsArrowRight.disabled = (lastTabBounds.right + 10) <= sliderBounds.right;
+	};
 
-					if (targ === schemeBtnList[i]) {
-						schemeBtnList[j].classList.add('active');
-						schemeSliderSlides[i].style.display = 'block';
-						schemeSliderDescrBlock[i].style.display = 'block';
-					}
-				}
-			}
-		}
+	const translate = (direction) => {
+			if (isTransitioning) return;
 
-		if (targ === tabButtonsArrowLeft.firstElementChild  || targ === tabButtonsArrowLeft.firstElementChild.firstElementChild) {
-			targ = targ.closest('#nav-arrow-scheme_left');
-		} else if (targ === tabButtonsArrowRight.firstElementChild  || targ === tabButtonsArrowRight.firstElementChild.firstElementChild) {
-			targ = targ.closest('#nav-arrow-scheme_right');
-		} else {
-			targ = e.target;
-		}
+			const totalWidth = getTotalWidth();
+			const visibleWidth = getVisibleWidth();
 
-		window.addEventListener('resize', event => {
-			ourWidth = event.target.innerWidth;
-			if(ourWidth > 1136) {
-				schemeBtnBlock.style.transform = `translateX(0px)`;
-			}
-		});
+			// Calculate the new scroll position
+			const newCount = count + direction * stepSize;
+			const maxScroll = totalWidth - visibleWidth;
 
-		let btn1;
-		let btn6;
-		const translateLeft = () => {
-			if (ourWidth > 1025 && ourWidth < 1136) {
-				count -= 180;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 170 && btn6.x > 850) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = -180;
-				}
-			}
+			// Ensure we don't scroll past the first or last item
+			count = Math.max(Math.min(newCount, 0), -maxScroll);
 
-			if (ourWidth < 1025 && ourWidth > 769) {
-				count -= 180;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 170 && btn6.x > 750) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = -180;
-				}
+			// Apply the translation
+			schemeBtnBlock.style.transition = 'transform 0.3s ease-in-out';
+			schemeBtnBlock.style.transform = `translateX(${count}px)`;
+
+			isTransitioning = true;
+			setTimeout(() => {
+					updateButtonsState();
+					isTransitioning = false;
+			}, 300);
+	};
+
+	const handleClick = (e) => {
+			const targ = e.target.closest('.scheme-nav__item, #nav-arrow-scheme_left, #nav-arrow-scheme_right');
+			if (!targ) return;
+
+			if (targ.classList.contains('scheme-nav__item')) {
+					// Handle tab switching
+					schemeBtnList.forEach((btn, index) => {
+							btn.classList.remove('active');
+							schemeSliderSlides[index].style.display = 'none';
+							schemeSliderDescrBlock[index].style.display = 'none';
+							if (btn === targ) {
+									btn.classList.add('active');
+									schemeSliderSlides[index].style.display = 'block';
+									schemeSliderDescrBlock[index].style.display = 'block';
+							}
+					});
 			}
 
-			if (ourWidth < 769 && ourWidth > 578) { 
-				count -= 205;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-
-				if(btn1.x < 120 && btn6.x > 550) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = -205;
-				}
+			if (targ === tabButtonsArrowLeft) {
+					translate(1); // Scroll to the left
 			}
 
-			if (ourWidth < 578) { 
-				count -= 205;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
+			if (targ === tabButtonsArrowRight) {
+					translate(-1); // Scroll to the right
+			}
+	};
 
-				if(btn1.x < 155 && btn6.x > 300) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = -205;
-				}
-			}
-		}
+	const handleResize = () => {
+			count = 0;
+			schemeBtnBlock.style.transform = `translateX(0px)`;
+			updateButtonsState();
+	};
 
-		const translateRight = () => {
-			if (ourWidth > 1025 && ourWidth < 1136) {
-				count += 180;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 20 && btn6.x < 980) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = 180;
-				}
-			}
-			if (ourWidth < 1025 && ourWidth > 769) {	
-				count += 180;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 20 && btn6.x < 980) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = 180;
-				}
-			}
-
-			if (ourWidth < 769 && ourWidth > 578) {
-				count += 205;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 20 && btn6.x < 980) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = 205;
-				}
-			}
-
-			if (ourWidth < 578) {
-				count += 205;
-				btn1 = schemeBtnList[0].getBoundingClientRect();
-				btn6 = schemeBtnList[5].getBoundingClientRect();
-				
-				if(btn1.x < 20 && btn6.x < 980) {
-					schemeBtnBlock.style.transform = `translateX(${count}px)`;
-				} 
-				else {
-					count = 205;
-				}
-			}
-		}
-		
-		if (targ === tabButtonsArrowLeft) {
-			translateRight();
-			count++;
-		}
-		if (targ === tabButtonsArrowRight) {
-			count--;
-			translateLeft();
-		}
-	});
+	schemeId.addEventListener('click', handleClick);
+	window.addEventListener('resize', handleResize);
+	updateButtonsState();
 };
 
 export default howWeWorkTabs;
