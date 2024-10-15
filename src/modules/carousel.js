@@ -22,6 +22,8 @@ export default class UniversalCarousel {
 		window.addEventListener('resize', this.setScreenSize.bind(this));
 		this.rightNav.addEventListener('click', this.moveLeft.bind(this));
 		this.leftNav.addEventListener('click', this.moveRight.bind(this));
+		this.rightNav.addEventListener('touchend', this.moveLeft.bind(this));
+		this.leftNav.addEventListener('touchend', this.moveRight.bind(this));
 		this.carouselContent.addEventListener('mousedown', this.seeMovement.bind(this));
 
 		this.activateAgainBinded  = this.activateAgain.bind(this);
