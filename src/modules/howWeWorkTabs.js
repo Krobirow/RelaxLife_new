@@ -10,7 +10,8 @@ const howWeWorkTabs = () => {
 
 	let count = 0;
 	let isTransitioning = false;
-	const stepSize = 200; // Adjust this value if necessary
+	const stepSize = 200;
+	let touchEventHandled = false; // Flag to prevent double triggering
 
 	const getSliderBounds = () => schemeBtnBlock.getBoundingClientRect();
 	const getTabBounds = (index) => schemeBtnList[index].getBoundingClientRect();
@@ -55,6 +56,14 @@ const howWeWorkTabs = () => {
 	const handleClick = (e) => {
 			const targ = e.target.closest('.scheme-nav__item, #nav-arrow-scheme_left, #nav-arrow-scheme_right');
 			if (!targ) return;
+
+			// Prevent further click events if touchend was handled
+			if (e.type === 'touchend') {
+				touchEventHandled = true;
+			} else if (e.type === 'click' && touchEventHandled) {
+				touchEventHandled = false;
+				return;
+			}
 
 			if (targ.classList.contains('scheme-nav__item')) {
 					// Handle tab switching

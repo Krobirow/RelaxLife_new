@@ -1,11 +1,8 @@
 const pleasingScrollToLinks = () => {
-  const menu = document.querySelector('.popup-menu-nav');
-  const menuLi = menu.querySelectorAll('.popup-menu-nav__item > a');
-
   const btnFooterScrollUp = document.querySelector('.button-footer');
   const footerLinkScrollUp = btnFooterScrollUp.firstElementChild;
 
-  // Функция для скролла с учетом смещения на 40 пикселей
+  // Scroll function with offset
   const scrollToElementWithOffset = (element, offset = 40) => {
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - offset;
@@ -16,29 +13,33 @@ const pleasingScrollToLinks = () => {
     });
   };
 
-  // Событие для кнопки в футере
-  footerLinkScrollUp.addEventListener('click', e => {
-    e.preventDefault();
-    const getId = footerLinkScrollUp.getAttribute('href');
-    const targetElement = document.querySelector(getId);
+  // Handler function for both menu links and the footer button
+  const handleScrollEvent = (e) => {
+    let target = e.target;
 
-    if (targetElement) {
-      scrollToElementWithOffset(targetElement, 40); // Скроллим с учетом смещения на 40px
-    }
-  });
-
-  // Событие для всех ссылок в меню
-  for (let key of menuLi) {
-    key.addEventListener('click', e => {
+    // Handling footer scroll button click
+    if (target === footerLinkScrollUp) {
       e.preventDefault();
-      const linkId = key.getAttribute('href');
-      const targetElement = document.querySelector(linkId);
-
+      const targetElement = document.querySelector(target.getAttribute('href'));
       if (targetElement) {
-        scrollToElementWithOffset(targetElement, 40); // Скроллим с учетом смещения на 40px
+        scrollToElementWithOffset(targetElement, 40);
       }
-    });
-  }
+    }
+
+    // Handling menu links click
+    if (target.closest('.popup-menu-nav__item > a')) {
+      e.preventDefault();
+      const link = target.closest('.popup-menu-nav__item > a');
+      const targetElement = document.querySelector(link.getAttribute('href'));
+      if (targetElement) {
+        scrollToElementWithOffset(targetElement, 40);
+      }
+    }
+  };
+
+  // Adding one listener for both click and touchend events on the body
+  document.body.addEventListener('click', handleScrollEvent);
+  document.body.addEventListener('touchend', handleScrollEvent);
 };
 
 export default pleasingScrollToLinks;

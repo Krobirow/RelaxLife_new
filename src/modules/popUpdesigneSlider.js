@@ -27,6 +27,7 @@ const popUpdesigneSlider = () => {
 	let currentSlideIndex = 0;
 	let count = 0; // For horizontal tab scroll
 	const stepSize = 180; // Adjust if necessary
+	let touchEventHandled = false; // Flag to prevent double triggering
 
 	// Reset body overflow when popup is closed
 	const stopScroll = () => {
@@ -90,6 +91,14 @@ const popUpdesigneSlider = () => {
 
 	const handleEvent = (e) => {
 		const target = e.target;
+
+		// Prevent further click events if touchend was handled
+		if (e.type === 'touchend') {
+			touchEventHandled = true;
+		} else if (e.type === 'click' && touchEventHandled) {
+			touchEventHandled = false;
+			return;
+		}
 
 		if (target.classList.contains('link-list-designs-btn')) {
 			popupDesign.style.visibility = 'visible';

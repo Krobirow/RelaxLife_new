@@ -21,6 +21,7 @@ const designerSolutTabsSliders = () => {
 	let currentSlideIndex = 0;
 	let count = 0;
 	const stepSize = 200; // Adjust scrolling step based on how much space to scroll per click
+	let touchEventHandled = false; // Flag to prevent double triggering
 
 	const getSliderBounds = () => designsBtnContainer.getBoundingClientRect();
 	const getTabBounds = (index) => designsBtnList[index].getBoundingClientRect();
@@ -99,6 +100,14 @@ const designerSolutTabsSliders = () => {
 
 	const handleEvent = (e) => {
 		const target = e.target;
+
+		// Prevent further click events if touchend was handled
+		if (e.type === 'touchend') {
+			touchEventHandled = true;
+		} else if (e.type === 'click' && touchEventHandled) {
+			touchEventHandled = false;
+			return;
+		}
 
 		// Handle tab switching
 		if (target.closest('.designs-nav__item')) {
