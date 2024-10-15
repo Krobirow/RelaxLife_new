@@ -249,6 +249,9 @@ template {
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
+    background-color: transparent;
+    border: none;
 }
 
 /* Стили для точек */
@@ -3698,9 +3701,12 @@ div.wave-block:nth-child(17):after {
     .popup-dialog-menu {
         width: 100%;
         height: 705px;
-        background: #322823;
+        background: #413b3b;
         border-bottom-left-radius: 100% 17%;
         border-bottom-right-radius: 100% 17%;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: white;
         -webkit-transform: translate3d(0, -100vh, 0);
         transform: translate3d(0, -100vh, 0);
         left: 0;
