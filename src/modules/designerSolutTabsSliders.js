@@ -97,7 +97,7 @@ const designerSolutTabsSliders = () => {
 		sliderCountCurrent.innerHTML = currentSlideIndex + 1;
 	};
 
-	designsContainer.addEventListener('click', (e) => {
+	const handleEvent = (e) => {
 		const target = e.target;
 
 		// Handle tab switching
@@ -119,7 +119,10 @@ const designerSolutTabsSliders = () => {
 		} else if (target.closest('#nav-arrow-designs_right')) {
 			translate(-1); // Scroll to the right
 		}
-	});
+	} 
+
+	designsContainer.addEventListener('click', (e) => handleEvent(e));
+	designsContainer.addEventListener('touchend', (e) => handleEvent(e));
 
 	window.addEventListener('resize', () => {
 		count = 0;

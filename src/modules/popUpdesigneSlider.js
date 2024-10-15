@@ -88,8 +88,7 @@ const popUpdesigneSlider = () => {
 		sliderCountCurrent.innerHTML = currentSlideIndex + 1;
 	};
 
-	// Add event listener for popup interactions
-	document.body.addEventListener('click', (e) => {
+	const handleEvent = (e) => {
 		const target = e.target;
 
 		if (target.classList.contains('link-list-designs-btn')) {
@@ -124,7 +123,11 @@ const popUpdesigneSlider = () => {
 		if (target.closest('#popup_design_right')) {
 			navigateSlide(1); // Move to the next slide
 		}
-	});
+	}
+
+	// Add event listener for popup interactions
+	document.body.addEventListener('click', (e) => handleEvent(e));
+	document.body.addEventListener('touchend', (e) => handleEvent(e));
 
 	// Initialize the popup with the first tab active
 	switchSlider(0);

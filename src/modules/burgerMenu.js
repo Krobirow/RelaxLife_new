@@ -3,43 +3,47 @@ const burgerMenu = () => {
 	ourHeaderPopUpMenu.style.opacity = '0';
 	let ourWidth;
 	ourWidth = document.documentElement.offsetWidth;
-	if(ourWidth < 580) {
+	if (ourWidth < 580) {
 		ourHeaderPopUpMenu.style.transform = 'translate3d(0,-100vh,0)';
-	} 
-	if(ourWidth > 580){
+	}
+	if (ourWidth > 580) {
 		ourHeaderPopUpMenu.style.transform = 'translate3d(645px,0,0)';
 	}
+
 	window.addEventListener('resize', event => {
 		ourWidth = event.target.innerWidth;
-		if(ourWidth < 580) {
+		if (ourWidth < 580) {
 			ourHeaderPopUpMenu.style.transform = 'translate3d(0,-100vh,0)';
-		} else if(ourWidth > 580){
+		} else if (ourWidth > 580) {
 			ourHeaderPopUpMenu.style.transform = 'translate3d(645px,0,0)';
 		}
 	})
-	
-	document.body.addEventListener('click', e => {
+
+	const handleEvent = (e) => {
 		let targ = e.target;
 
-		if(targ.classList.contains('menu__icon') || targ.classList.contains('menu__title')) {
+		if (targ.classList.contains('menu__icon') || targ.classList.contains('menu__title')) {
 			targ = targ.closest('.menu');
 		} else {
 			targ = e.target
 		}
 
-		if(targ.classList.contains('menu')) {
+		if (targ.classList.contains('menu')) {
 			ourHeaderPopUpMenu.style.opacity = '1';
 			ourHeaderPopUpMenu.style.transform = 'translate3d(0,0,0)';
 		} else {
-			if(ourWidth < 576) {
+			if (ourWidth < 576) {
 				ourHeaderPopUpMenu.style.opacity = '0';
 				ourHeaderPopUpMenu.style.transform = 'translate3d(0,-100vh,0)';
-			} else if(ourWidth > 576){
+			} else if (ourWidth > 576) {
 				ourHeaderPopUpMenu.style.opacity = '0';
 				ourHeaderPopUpMenu.style.transform = 'translate3d(645px,0,0)';
 			}
 		}
-	});
+	}
+
+	document.body.addEventListener('click', e => handleEvent(e));
+	document.body.addEventListener('touchend', e => handleEvent(e));
 };
 
 export default burgerMenu;

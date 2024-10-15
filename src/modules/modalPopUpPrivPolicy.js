@@ -13,7 +13,7 @@ const modalPopUpPrivPolicy = () => {
 		htmlTag.style.overflowY = '';
 	};
 
-	document.body.addEventListener('click', e => {
+	const handleEvent = (e) => {
 		const target = e.target;
 
 		// Обработчик для показа popUpPrivacy
@@ -41,7 +41,10 @@ const modalPopUpPrivPolicy = () => {
 			popUpPrivacy.style.visibility = 'hidden';
 			startScroll();
 		}
-	})
+	}
+
+	document.body.addEventListener('click', e => handleEvent(e))
+	document.body.addEventListener('touchend', e => handleEvent(e))
 };
 
 export default modalPopUpPrivPolicy;

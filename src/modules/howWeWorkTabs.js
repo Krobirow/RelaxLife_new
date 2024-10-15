@@ -86,6 +86,7 @@ const howWeWorkTabs = () => {
 	};
 
 	schemeId.addEventListener('click', handleClick);
+	schemeId.addEventListener('touchend', handleClick);
 	window.addEventListener('resize', handleResize);
 	updateButtonsState();
 };
